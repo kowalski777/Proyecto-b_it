@@ -4,9 +4,14 @@ from django.db import models
 
 class Cliente(models.Model):
     nombre=models.CharField(max_length=30)
+    apellido=models.CharField(max_length=30)
     direccion=models.CharField(max_length=50)
     email=models.EmailField()
+    documento=models.IntegerField()
+    departamento=models.CharField(max_length=50)
+    ciudad=models.CharField(max_length=50)
     telefono=models.CharField(max_length=9)
+    fecha_de_nacimiento=models.DateField()
 
 class Articulo(models.Model):
     nombre=models.CharField(max_length=30)
