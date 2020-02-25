@@ -3,23 +3,34 @@ from django.db import models
 # Create your models here.
 
 class Cliente(models.Model):
-    nombre=models.CharField(max_length=30)
-    apellido=models.CharField(max_length=30)
-    direccion=models.CharField(max_length=50)
-    email=models.EmailField()
-    documento=models.IntegerField()
-    departamento=models.CharField(max_length=50)
-    ciudad=models.CharField(max_length=50)
-    telefono=models.CharField(max_length=9)
-    fecha_de_nacimiento=models.DateField()
+    documento_cliente=models.IntegerField()
+    nombre_cliente=models.CharField(max_length=30)
+    apellido_cliente=models.CharField(max_length=30)
+    email_cliente=models.EmailField()
+    direccion_cliente=models.CharField(max_length=50)
+    depar_cliente=models.CharField(max_length=50)
+    ciudad_cliente=models.CharField(max_length=50)
+    telefono_cliente=models.CharField(max_length=9)
+    fechaNac_cliente=models.DateField()
+    rut_cliente=models.IntegerField()
 
 class Articulo(models.Model):
-    nombre=models.CharField(max_length=30)
-    marca=models.CharField(max_length=30)
-    categoria=models.CharField(max_length=30)
-    precio=models.IntegerField()
+    id_articulo=models.CharField(max_length=30)
+    nombre_articulo=models.CharField(max_length=30)
+    marca_articulo=models.CharField(max_length=30)
+    categoria_articulo=models.CharField(max_length=30)
+    precio_articulo=models.IntegerField()
 
 class Pedido(models.Model):
-    numero=models.IntegerField()
-    fecha=models.DateField()
-    entregado=models.BooleanField()
+    id_pedido=models.IntegerField()
+    documento_cliente=models.IntegerField()
+    fecha_pedido=models.DateField()
+    envio_pedido=models.BooleanField()
+
+
+class Detalle(models.Model):
+    num_detalle =models.IntegerField()
+    id_articulo =models.IntegerField()
+    cantidad_detalle =models.IntegerField()
+    precio_detalle =models.IntegerField()
+   
